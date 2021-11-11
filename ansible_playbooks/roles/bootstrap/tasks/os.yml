@@ -1,0 +1,5 @@
+---
+- name: "OS: set hostname & permanently"
+  hostname:
+    name: "{{ inventory_hostname }}"
+  tags: hostname

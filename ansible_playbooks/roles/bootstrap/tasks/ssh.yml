@@ -1,0 +1,19 @@
+---
+- name: "ssh: ssh optimize"
+  debug:
+    msg: "optimize ssh service"
+
+- name: "ssh: copy ssh pub key"
+  copy:
+    src: "~/.ssh/id_rsa.pub"
+    dest: "~/.ssh/authorized_keys"
+    mode: u+rw
+
+- name: "ssh: close pam authorization"
+  shell:
+    cmd: "sudo  sed -i 's/^UsePAM.*/UsePAM no/g' /etc/ssh/sshd_config"
+
+- name: "ssh: restart sshd service"
+  systemd:
+    state: restarted
+    name: sshd

@@ -1,0 +1,8 @@
+---
+- name: Persisence OS Configure
+  import_tasks: os.yml
+  tags: os
+
+- name: Optimize ssh services
+  import_tasks: ssh.yml
+  tags: ssh

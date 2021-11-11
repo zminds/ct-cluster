@@ -1,0 +1,12 @@
+guizhou-1 ansible_host=113.125.126.97 ansible_user=root
+guizhou-2 ansible_host=113.125.165.240 ansible_user=root
+guizhou-3 ansible_host=140.246.176.93 ansible_user=root
+guizhou-4 ansible_host=140.246.125.28 ansible_user=root
+guizhou-5 ansible_host=203.6.238.240 ansible_user=root
+
+[nodes]
+guizhou-1
+guizhou-2
+guizhou-3
+guizhou-4
+guizhou-5
