@@ -11,8 +11,7 @@
 - name: Install kubeadm
   yum:
     name: 
-      - kubeadm
       - kubelet
-      # - kubectl
-    state: latest
-    
+      - kubeadm
+      - kubectl
+    state: present
