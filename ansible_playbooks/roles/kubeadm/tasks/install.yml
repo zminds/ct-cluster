@@ -13,6 +13,6 @@
     name: 
       - kubeadm
       - kubelet
-      - kubectl
+      # - kubectl
     state: latest
     
