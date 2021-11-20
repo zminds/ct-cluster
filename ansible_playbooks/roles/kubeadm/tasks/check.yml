@@ -1,0 +1,31 @@
+---
+- name: Get all node mac address
+  debug: 
+    msg: "{{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress}}"
+
+- name: Get product uuid from fact
+  debug:
+    msg: "{{ hostvars[inventory_hostname].ansible_product_uuid }}"
+
+- name: Get product uuid from proc
+  shell: "cat /sys/class/dmi/id/product_uuid"
+  register: product_uuid
+
+- name: Show UUID in proc
+  debug: 
+    msg: "{{ product_uuid.stdout }}"
+    
+- name: Modprobe br_netfilter
+  modprobe:
+    name: br_netfilter
+    state: present
+
+- name: Enable Net bridge-netfilter for ip6tables
+  sysctl:
+    name: net.bridge.bridge-nf-call-ip6tables
+    value: '1'
+
+- name: Enable Net bridge-netfilter for iptables
+  sysctl:
+    name: net.bridge.bridge-nf-call-iptables
+    value: '1'

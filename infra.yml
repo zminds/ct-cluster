@@ -1,4 +1,8 @@
 ---
 - hosts: nodes
-  roles: 
+  roles:
     - bootstrap
+
+- hosts: nodes
+  roles:
+    - { role: kubeadm, tags: kubeadm }

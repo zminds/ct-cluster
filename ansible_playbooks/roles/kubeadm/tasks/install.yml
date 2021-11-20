@@ -1,0 +1,17 @@
+---
+- name: Persistent kubernetes centos repo
+  yum_repository:
+    name: kubernetes
+    file: kubernetes_tsinghua
+    description: "kubernetes mirror by tsinghua"
+    baseurl: https://mirrors.tuna.tsinghua.edu.cn/kubernetes/yum/repos/kubernetes-el7-$basearch
+    gpgcheck: no
+    enabled: yes
+
+- name: Install kubeadm
+  yum:
+    name: 
+      - kubeadm
+      - kubelet
+    state: latest
+    
